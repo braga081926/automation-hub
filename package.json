@@ -1,0 +1,23 @@
+{
+  "name": "automation-hub",
+  "version": "1.0.0",
+  "description": "Node.js automation that syncs Google Sheets -> PostgreSQL",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "node --env-file=.env --watch ./src/index.js",
+    "migrate:make": "node --env-file=.env ./node_modules/.bin/knex --knexfile ./knexfile.cjs migrate:make add_table_sync",
+    "migrate:rollback": "node --env-file=.env ./node_modules/.bin/knex --knexfile ./knexfile.cjs migrate:rollback",
+    "migrate:latest": "node --env-file=.env ./node_modules/.bin/knex --knexfile ./knexfile.cjs migrate:latest"
+  },
+  "keywords": [],
+  "author": "Lucas Braga",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "1.12.2",
+    "googleapis": "164.0.0",
+    "knex": "3.1.0",
+    "pg": "8.16.3"
+  }
+}
